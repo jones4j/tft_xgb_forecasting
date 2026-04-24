@@ -9,7 +9,6 @@ build/
 *.pyo
 *.pyd
 .env
-artifacts/
-data/
-logs/
-
+/artifacts/
+/data/
+/logs/
