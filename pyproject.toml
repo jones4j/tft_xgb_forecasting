@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "self-healing-energy"
+version = "0.1.0"
+description = "Self-healing energy forecasting and optimization framework for parquet-based enterprise datasets."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "OpenAI Codex" }]
+dependencies = [
+  "fastapi>=0.115",
+  "pydantic>=2.7",
+  "pydantic-settings>=2.2",
+  "pandas>=2.2",
+  "pyarrow>=15.0",
+  "numpy>=1.26",
+  "scikit-learn>=1.5",
+  "xgboost>=2.1",
+  "orjson>=3.10",
+  "uvicorn>=0.30",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2",
+  "pytest-cov>=5.0",
+  "ruff>=0.5",
+]
+tft = [
+  "torch>=2.3",
+  "pytorch-forecasting>=1.0",
+  "lightning>=2.3",
+]
+optimization = [
+  "ortools>=9.10",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
