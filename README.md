@@ -30,9 +30,9 @@ parquet inputs
   -> corrective loop for retraining and repair escalation
 ```
 
-## Why This Is Complex
+## General Overview
 
-The complexity in this system is not just "time-series forecasting is hard." The deeper challenge is that the system has to make several different kinds of decisions well at the same time:
+The deeper challenge is that the system has to make several different kinds of decisions well at the same time:
 
 - statistical decisions: what signal is predictive, what is noise, what is drift
 - operational decisions: when to repair data, when to leave it untouched, when to retrain
@@ -43,7 +43,7 @@ That is why the modeling layer is split rather than unified.
 
 ## Forecasting Strategy
 
-The primary forecasting path is a real Temporal Fusion Transformer implemented through PyTorch Forecasting. That choice is purposeful because the forecasting problem is structurally complex:
+The primary forecasting path is Temporal Fusion Transformer implemented through PyTorch Forecasting. That choice is purposeful because the forecasting problem is structurally complex:
 
 - load is strongly temporal, with multiple interacting seasonalities
 - weather, tariff regime, holiday effects, solar generation, and battery state all influence demand jointly
